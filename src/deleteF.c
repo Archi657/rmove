@@ -57,7 +57,7 @@ int deleteF(const CLIOptions* options) {
     for (int i = 0; i < MAX_FILES && files[i] != NULL; i++) {
         // Compose new path by combining pathEnd + "/" + filename
         snprintf(newPath, sizeof(newPath), "%s/%s", pathEnd, get_filename(files[i]));
-
+        // TODO: Iterative mode
         int rc = rename(files[i], newPath);
         if (rc != 0) {
             perror("Failed to rename file");
